@@ -1,0 +1,38 @@
+
+a) Principais características e finalidades:
+
+Estrutura: Pilha (std::stack)
+
+Modelo de acesso: LIFO (Last-In, First-Out) = “Último a Entrar, Primeiro a Sair”
+
+Finalidade: rastrear estados anteriores ou reverter ações. Exemplos: botão "Desfazer" de editores de texto, histórico do navegador web e a "Call Stack" (pilha de chamadas de função) do próprio computador.
+
+
+Estrutura: Fila (std::queue)
+
+Modelo de acesso: FIFO (First-In, First-Out) =  ”Primeiro a Entrar, Primeiro a Sair”
+
+Finalidade: organizar elementos por ordem de chegada. Exemplos: fila de documentos em uma impressora, atendimento de requisições em um servidor e algoritmos de busca em largura (BFS).
+
+
+
+b)Funções:
+
+push() : Adiciona um novo elemento à estrutura.
+Pilha: adiciona no topo
+Fila: adiciona no fim
+
+pop() : Remove o elemento da vez.
+Pilha: remove do topo
+fila: remove do inicio
+
+top() (pilha) : Lê o próximo elemento a sair (último que entrou).
+Pilha: retorna o elemento do topo
+
+front() (fila): Lê o próximo elemento a sair (primeiro que entrou).
+Fila: retorna o inicio
+
+empty() : Verifica se a estrutura está vazia. (tanto na pilha e fila).
+
+
+A alternativa c) está nos arquivos exemplo_queue e exemplo_stack.
