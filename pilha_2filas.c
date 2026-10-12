@@ -57,16 +57,15 @@ void addFila(Fila *f, int item) {
 
 int removeFila(Fila *f) {
 
-    No *temp = f->inicio; //1> selecionar o inicio
-    int item = temp->item; //2>selecionar o item (que será alterado apos o andamento do inicio ao proximo)
-    f->inicio = temp->next; //inicio se torna o proximo
+    No *temp = f->inicio; 
+    int item = temp->item; 
+    f->inicio = temp->next;
 
 
-    if (f->inicio == NULL) f->fim = NULL; //caso a fila só tinha 1 elemento, inicio se torna null. logo, fim também terá que apontar para null
+    if (f->inicio == NULL) f->fim = NULL; 
+    free(temp); 
 
-    free(temp); //libera o antigo inicio
-
-    return item; //retorna o item novo como o início
+    return item; 
 
 }
 
@@ -85,17 +84,17 @@ int pilhaVazia(Pilha *p) {
 }
 
 void push(Pilha *p, int item) {
-    addFila(&p->f2, item); //salva o fim
+    addFila(&p->f2, item);
 
     while (!filaVazia(&p->f1)) {
 
-        addFila(&p->f2, removeFila(&p->f1)); //o elemento que seria o inicio na fila 1 torna-se o fim na fila 2
+        addFila(&p->f2, removeFila(&p->f1)); 
 
     }
     
     Fila aux = p->f1;
     p->f1 = p->f2;
-    p->f2 = aux; //troca de valores entre as filas com ajuda de fila aux
+    p->f2 = aux;
 
 }
 

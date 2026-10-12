@@ -34,26 +34,26 @@ void exibir(Lista p) {
 
 
 //juntar
-void anexar(Lista *A, Lista B) {  //ponteiro para ponteiro
-    if (B == NULL) {  //b vazia
+void anexar(Lista *A, Lista B) { 
+    if (B == NULL) { 
         return;
     }
 
     while (*A != NULL) {
-        A = (&(*A)->prox); //passagem
+        A = (&(*A)->prox);
     
     }
 
-    *A = B; //final da lista inclui a lista 
+    *A = B; 
 }
 
 
 //destruir
 void destruir(Lista *L) {
-    while (*L != NULL) { //enquanto não chegar ao ultimo
-        Lista n = *L; //pegar o no
-        *L = n->prox; //passagem
-        free(n); //free o no
+    while (*L != NULL) { 
+        Lista n = *L; 
+        *L = n->prox; 
+        free(n); 
     }
 }
 
@@ -113,9 +113,9 @@ Lista clone(Lista L) {
 
 
 // void exibe_inv(Lista L) { 
-//     if (L == NULL) return;
-//     exibe_inv(L->prox); //empilhar
-//     printf(fmt, L->item); //desempilhar
+//     if (L == NULL) 
+//     exibe_inv(L->prox); 
+//     printf(fmt, L->item); 
 // }
 
 void exibe_inv(Lista L) { 
@@ -137,11 +137,11 @@ void exibe_inv(Lista L) {
 
 //9.4)
 Lista criar_inv(Lista L) { 
-    if (L == NULL ) return NULL; //lista vazia
+    if (L == NULL ) return NULL; 
 
-    Lista invertida = criar_inv(L->prox); //passo recursivo
-    Lista novo = no(L->item, NULL); //ultimo elemento
-    anexar(&invertida, novo); //anexa o ultimo elemento
+    Lista invertida = criar_inv(L->prox); 
+    Lista novo = no(L->item, NULL); 
+    anexar(&invertida, novo);
 
     return invertida;
 
@@ -222,23 +222,23 @@ void inverte_em_lista (Lista *L) {
     Lista anterior = NULL;
 
     while (atual != NULL) {
-        proximo = atual->prox; //guarde o valor de atual
-        atual->prox = anterior; //mude a direcao do ponteiro
-        anterior = atual; //anterior aponta para atual
-        atual = proximo; //percorra
+        proximo = atual->prox; 
+        atual->prox = anterior; 
+        anterior = atual; 
+        atual = proximo; 
     }
 
-    *L = anterior; //a lista deve apontar para seu anterior, pois no fim, atual se tornara null e ficara em anterior
+    *L = anterior;
 
 }
 
 
 // int igual(Lista A, Lista B) {
-//     if (A == NULL && B == NULL) return 1; //1 caso > as duas vazias
-//     if (A == NULL || B == NULL) return 0; //2 caso > tamanhos diferentes
-//     if (A->item != B->item) return 0; //3 caso> itens diferentes
+//     if (A == NULL && B == NULL) return 1; 
+//     if (A == NULL || B == NULL) return 0; 
+//     if (A->item != B->item) return 0; 
 
-//     return igual(A->prox, B->prox); //4> passo recursivo
+//     return igual(A->prox, B->prox); 
 // }
 
 
@@ -304,11 +304,11 @@ Itemp desempilha(Pilha *P) {
         exit(1);
     }//pilha vazia;
 
-    Pilha topo = *P; //1> ponteiro para topo
-    Itemp x = topo->itemp; //2> pegar item
-    *P = topo->proxp;  //3> mandar o topo pro proximo
+    Pilha topo = *P; 
+    Itemp x = topo->itemp; 
+    *P = topo->proxp;
     free(topo);
-    return x; //retorna o item
+    return x; 
 
 }
 
@@ -332,10 +332,10 @@ Fila nof(Itemf f, Fila A) {
 
 
 void enfileira(Itemf x, Fila *F) {
-    if (*F == NULL) { //vazia
-        Fila y = nof(x, NULL); //1: criar no incial (NULL)
-        y->proxf = y;  //primeiro item
-        *F = y; //aponta pro primeiro criado
+    if (*F == NULL) {
+        Fila y = nof(x, NULL); 
+        y->proxf = y;  
+        *F = y; 
 
     } else {
         Fila y = nof(x, (*F)->proxf); 
@@ -353,20 +353,20 @@ void exibirpilha(Pilha P) {
 
 
 Item desenfileira(Fila *F) {
-    if (*F == NULL) { //error
+    if (*F == NULL) { 
         exit(1);
     }
 
-    Fila y = (*F)->proxf; //referenciar
-    Itemf x = y->itemf; //guardar item
+    Fila y = (*F)->proxf; 
+    Itemf x = y->itemf;
 
     if (y == *F) {*F = NULL;
     } else {
         (*F)->proxf = y->proxf;
-    }//percorrer
+    }
     
-    free(y); //liberar o no que o ponteiro aponta referenciado por y
-    return x; //retornar o item guardado no x
+    free(y);
+    return x; 
 
 }
 

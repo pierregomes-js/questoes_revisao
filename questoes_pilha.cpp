@@ -21,19 +21,19 @@ Pilha pilha (int m) {
 
 void empilha (char item, Pilha P) {
     P->topo++;
-    P->itens[P->topo] = item; //P->topo = retorna o topo de P;
+    P->itens[P->topo] = item;
 
 }
 
 void desempilha (Pilha P) {
-    P->topo--; //exclui o topo, a posicao do novo topo se altera para o antigo penultimo
+    P->topo--; 
 }
 
 //pilha_int
 typedef struct pilha_int {
     int max;
     int topo;
-    int *itens; //ponteiro
+    int *itens; 
     
 } *Pilha_int;
 
@@ -49,12 +49,12 @@ Pilha_int pilha_int (int m) {
 
 void empilha_int (int item, Pilha_int P) {
     P->topo++;
-    P->itens[P->topo] = item; //P->topo = retorna o topo de P;
+    P->itens[P->topo] = item; 
 
 }
 
 void desempilha_int (Pilha_int P) {
-    P->topo--; //P->topo = retorna o topo de P;
+    P->topo--; 
 
 }
 
@@ -66,7 +66,7 @@ int vaziap(Pilha_int P) {
 
 //questoes
 
-int eh_valido (char expressao[]) { //questao de expressao (12 e 2.5)
+int eh_valido (char expressao[]) { 
     Pilha P = pilha(30);
     int i = 0;
 
@@ -80,8 +80,8 @@ int eh_valido (char expressao[]) { //questao de expressao (12 e 2.5)
         } else if (c == '}' || c == ')' || c == ']') {
 
             if (P->topo == -1) {
-                free(P->itens); //liberar itens
-                free(P); //liberar lista
+                free(P->itens); 
+                free(P); 
                 return 0;
             }
 

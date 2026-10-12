@@ -28,7 +28,7 @@ void inserirNoInicio(struct No** cabeca, int dado) {
     no->prox = *cabeca;
 
     if (*cabeca != NULL) {
-        (*cabeca)->prev = no; //caso nao esteja vazia, agora terá nó antecessor
+        (*cabeca)->prev = no; 
     }
 
     *cabeca = no;
@@ -55,10 +55,10 @@ void exibirLista_inv(struct No* no) {
 
     if (no == NULL) exit(1);
 
-    while (no->prox != NULL) { //percorrer até o ultimo, não totalmente.
+    while (no->prox != NULL) { 
         no = no->prox;
     }
-    while (no != NULL) { //com o ultimo nó alcançado pelo while anterior, utilizamos seu prev para invertê-lo.
+    while (no != NULL) { 
         printf("%d\n", no->dado);
         no = no->prev;
     }
